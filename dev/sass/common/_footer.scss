@@ -3,6 +3,10 @@
   left: 0;
   bottom: 0;
   z-index: 0;
+
+  @include small {
+    position: inherit;
+  }
 }
 
 .copyright {
