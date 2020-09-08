@@ -1,6 +1,10 @@
 .portfolio {
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.03);
 
+  @include small {
+    padding: 25px 0;
+  }
+
   .container {
     min-height: 100vh;
     display: flex;
@@ -10,16 +14,20 @@
   }
 
   .heading {
-    &::before, &::after {
-      top: 10px;
-    }
-
     &::before {
       left: 3px;
+
+      @include small {
+        left: 2px;
+      }
     }
   
     &::after {
       left: 43px;
+
+      @include small {
+        left: 22px;
+      }
     }
   
     b {
@@ -30,6 +38,16 @@
 
   article {
     text-align: right;
+
+    @include small {
+      text-align: center;
+    }
+  }
+
+  .info {
+    @include small {
+      display: none;
+    }
   }
 }
 
@@ -41,6 +59,11 @@
   grid-gap: 100px;
   align-items: center;
 
+  @include small {
+    margin: 25px 0;
+    display: block;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -49,6 +72,10 @@
     background-color: $color-primary;
     left: 50%;
     top: 0;
+
+    @include small {
+      display: none;
+    }
   }
   
   &__items {
@@ -70,6 +97,12 @@
 
     transition: .4s color .2s;
 
+    @include small {
+      font-size: 18px;
+      text-align: center;
+      flex-direction: column;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -82,6 +115,14 @@
       transition: .2s;
       transform-origin: left;
       transform: scaleX(0);
+
+      @include small {
+        position: inherit;
+        display: block;
+        left: inherit;
+        margin-bottom: 15px;
+        transform: scaleX(1);
+      }
     }
 
     small {
@@ -91,16 +132,22 @@
       font-weight: 500;
       font-size: 12px;
       text-transform: uppercase;
-      color: #000000;
+      color: $color-secondary;
 
       opacity: 0;
       transition: .4s opacity .4s;
+
+      @include small {
+        opacity: 1;
+        font-size: 10px;
+        margin-left: 0;
+      }
 
       &::before {
         content: '';
         position: absolute;
         left: -45px;
-        top: 5px;
+        top: 7px;
   
         width: 35px;
         height: 1px;

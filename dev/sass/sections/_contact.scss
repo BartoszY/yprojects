@@ -1,6 +1,10 @@
 .contact {
   min-height: inherit;
   padding-bottom: 160px;
+
+  @include small {
+    padding-bottom: 0;
+  }
 }
 
 .contact-box {
@@ -16,6 +20,11 @@
   justify-content: center;
   text-align: center;
 
+  @include small {
+    padding: 60px 0;
+    min-height: inherit;
+  }
+
   &__before, &__after {
     content: '';
     position: absolute;
@@ -24,24 +33,36 @@
 
   &__before {
     left: 0;
-    // left: 290px;
     top: 0;
     border-top: 500px solid $color-primary;
     border-right: 500px solid transparent;
+
+    @include small {
+      border-top-width: 40px;
+      border-right-width: 40px;
+    }
   }
 
   &__after {
     right: 0;
-    // right: 290px;
     bottom: 0;
     border-bottom: 500px solid $color-primary;
     border-left: 500px solid transparent;
+
+    @include small {
+      border-bottom-width: 40px;
+      border-left-width: 40px;
+    }
   }
 
   a {
     font-weight: 700;
     font-size: 18px;
     transition: .4s;
+
+    @include small {
+      font-size: 16px;
+    }
 
     &:hover {
       color: $color-primary;
@@ -60,6 +81,10 @@
     flex-direction: column;
     align-items: center;
 
+    @include small {
+      font-size: 28px;
+    }
+
     &::before, &::after {
       content: '';
       display: block;
@@ -67,6 +92,12 @@
       width: 60px;
       height: 2px;
       background-color: $color-primary;
+
+      @include small {
+        margin: 25px 0;
+        width: 40px;
+        height: 1px;
+      }
     }
   }
 }

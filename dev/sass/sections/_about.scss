@@ -1,6 +1,11 @@
 .about {
   background-color: $color-text;
   color: #fff;
+
+  @include small {
+    padding-top: 15px;
+    text-align: center;
+  }
   
   .container {
     position: relative;
@@ -10,14 +15,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+
+    @include small {
+      padding-bottom: 25px;
+    }
   }
 
   article {
     max-width: 600px;
+
+    @include small {
+      margin: 25px auto 0;
+    }
   }
 
   .button {
     margin-top: 45px;
+
+    @include small {
+      display: block;
+      width: 100%;
+    }
   }
 }
 
@@ -40,19 +58,26 @@
   right: 100px;
   transition: .4s;
 
-  &:nth-of-type(1) {
-    margin-top: -420px;
+  @include small {
+    position: inherit;
+    right: inherit;
+    margin: auto;
   }
 
-  &:nth-of-type(2) {
-    // color: $color-secondary;
-    // border-color: $color-secondary;
+  &:nth-of-type(1) {
+    margin-top: -420px;
+
+    @include small {
+      margin: 25px auto 15px;
+    }
   }
 
   &:nth-of-type(3) {
-    // color: $color-primary;
-    // border-color: $color-primary;
     margin-top: 420px;
+
+    @include small {
+      margin-top: 15px;
+    }
   }
 
   span {
@@ -65,6 +90,11 @@
     transition: .4s;
     
     transform: translateX(-100%);
+
+    @include small {
+      opacity: .2;
+      transform: translateX(0);
+    }
   }
 
   &:hover {
@@ -81,8 +111,4 @@
       transform: translateX(0);
     }
   }
-
-
-  // transition: .5s;
-  // transform: scale(0);
 }

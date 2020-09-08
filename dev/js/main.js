@@ -1,7 +1,7 @@
 import scrollDown from './components/scroll-down';
 import pointer from './components/pointer';
 import cookies from './components/cookies';
-import { menuToggle, nav } from './components/menu';
+import menuToggle from './components/menu';
 
 import heroAnimations from './sections/hero';
 import aboutAnimations from './sections/about';
@@ -12,14 +12,16 @@ scrollDown();
 pointer();
 cookies();
 menuToggle();
-nav();
 
 heroAnimations();
-aboutAnimations();
-portfolioAnimations();
-contactAnimations();
+
+if (!isMobile()) {
+  aboutAnimations();
+  portfolioAnimations();
+  contactAnimations();
+}
 
 // /* Helpers */
-// function isMobile() {
-//   return window.innerWidth <= 1024 ? true : false;
-// }
+function isMobile() {
+  return window.innerWidth <= 830 ? true : false;
+}

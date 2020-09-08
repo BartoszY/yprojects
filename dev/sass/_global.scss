@@ -2,6 +2,10 @@ html {
   scroll-behavior: smooth;
   cursor: none;
   overflow-x: hidden;
+
+  @include small {
+    cursor: inherit;
+  }
 }
 
 html {
@@ -36,8 +40,13 @@ section {
 .container {
   width: 100%;
   max-width: $container-size;
-  padding: 0 20px;
+  padding: 0 40px;
+  padding-left: 140px;
   margin: auto;
+
+  @include small {
+    padding: 0 25px;
+  }
 }
 
 
@@ -55,5 +64,7 @@ section {
   left: 0;
   z-index: 99999;
 
-  // transition: .4s border-radius;
+  @include small {
+    display: none;
+  }
 }

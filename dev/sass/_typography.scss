@@ -2,7 +2,12 @@ body {
   font-family: $font-secondary;
   font-size: 18px;
   font-weight: 300;
+  line-height: 1.5;
   color: $color-text;
+
+  @include small {
+    font-size: 16px;
+  }
 }
 
 strong, b {
@@ -32,23 +37,42 @@ img {
   position: relative;
   z-index: 50;
 
+  @include small {
+    font-size: 28px;
+    margin: 25px auto 15px;
+  }
+
   &::before, &::after {
     content: '';
     z-index: -1;
     position: absolute;
     width: 40px;
     height: 40px;
-    top: 9px;
+    top: 24px;
+
+    @include small {
+      top: 11px;
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &::before {
     left: -1px;
     background: $color-primary;
+
+    @include small {
+      left: 0px;
+    }
   }
 
   &::after {
     left: 39px;
     background: $color-secondary;
+
+    @include small {
+      left: 20px;
+    }
   }
 }
 

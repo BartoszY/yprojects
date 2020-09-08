@@ -17,6 +17,10 @@
     padding: 15px 20px;
   }
 
+  @include small {
+    width: calc(100% - 20px);
+  }
+
   &__title {
     margin: 15px 0;
     font-weight: 700;

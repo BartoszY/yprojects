@@ -15,10 +15,13 @@
   background-color: $color-secondary;
   border: 2px solid $color-secondary;
 
-  // text-edge: cap alphabetic;
-  // leading-trim: both;
-
   transition: .5s;
+
+  @include small {
+    padding: 10px 15px;
+    border-width: 1px;
+    font-size: 14px;
+  }
 
   &::before {
     position: absolute;
@@ -34,6 +37,13 @@
     transition: .4s;
     transform-origin: left;
     transform: scaleX(0.01);
+
+    @include small {
+      left: -2px;
+      top: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+    }
   }
 
   &:hover {

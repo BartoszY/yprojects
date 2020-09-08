@@ -71,8 +71,4 @@ const menuToggle = () => {
   });
 }
 
-const nav = () => {
-  
-}
-
-export {menuToggle, nav};
+export default menuToggle;

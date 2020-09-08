@@ -8,6 +8,11 @@
   letter-spacing: 2px;
   text-transform: uppercase;
 
+  @include small {
+    top: 35px;
+    right: 25px;
+  }
+
   a {
     transition: .4s;
 
@@ -43,15 +48,16 @@
       font-weight: 400;
       transition: .4s;
 
-      // a {
-        &:hover {
-          // transform: scale(.95);
+      @include small {
+        margin: 15px 0;
+        font-size: 18px;
+      }
 
-          &::first-letter {
-            color: $color-primary;
-          }
+      &:hover {
+        &::first-letter {
+          color: $color-primary;
         }
-      // }
+      }
     }
   }
 }
@@ -76,8 +82,19 @@
   align-items: center;
   justify-content: space-between;
 
+  @include small {
+    padding: 22px 0 18px;
+    width: 87px;
+    height: auto;
+    border-right: none;
+  }
+
   &__logo {
     margin-top: 60px;
+
+    @include small {
+      display: none;
+    }
   }
 }
 
@@ -107,6 +124,10 @@
 .scroll-down {
   width: 100%;
   transition: .4s;
+
+  @include small {
+    display: none;
+  }
 
   &:hover {
     transform: translateY(5px);

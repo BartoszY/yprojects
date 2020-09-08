@@ -3,9 +3,6 @@
   background-image: url('/prod/img/forest2.png');
   background-repeat: no-repeat;
   background-position: bottom;
-  // background-attachment: fixed;
-
-  // background-color: transparent;
 
   .container {
     min-height: 100vh;
@@ -25,10 +22,19 @@
     letter-spacing: 1.5px;
     text-transform: uppercase;
 
+    @include small {
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
     div {
       position: relative;
       overflow: hidden;
       height: 70px;
+
+      @include small {
+        height: 30px;
+      }
     }
 
     span {
@@ -49,6 +55,18 @@
     font-weight: 300;
     font-size: 18px;
 
+    @include small {
+      font-size: 12px;
+      line-height: 1.4;
+      letter-spacing: 1px;
+    }
+
+    span {
+      @include small {
+        display: block;
+      }
+    }
+
     strong {
       font-weight: 700;
       color: $color-primary;
@@ -59,8 +77,24 @@
     margin-top: 25px;
 
     .button {
-      // opacity: 0;
       margin-right: 15px;
+
+      @include small {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include small {
+      display: block;
+      position: absolute;
+      bottom: 120px;
+      left: calc(50vw - 28px);
     }
   }
 }
