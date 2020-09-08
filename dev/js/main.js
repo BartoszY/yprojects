@@ -8,10 +8,27 @@ import aboutAnimations from './sections/about';
 import portfolioAnimations from './sections/portfolio';
 import contactAnimations from './sections/contact';
 
+const contactLinkSupport = () => {
+  if (window.location.href.indexOf('#contact') > -1) {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
+  const links = document.querySelectorAll('a');
+  links.forEach(link => {
+    if (link.href.includes('#contact')) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo(0, document.body.scrollHeight);
+      });
+    }
+  });
+}
+
 scrollDown();
 pointer();
 cookies();
 menuToggle();
+contactLinkSupport();
 
 heroAnimations();
 

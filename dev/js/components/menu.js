@@ -63,11 +63,6 @@ const menuToggle = () => {
     if (e.target.nodeName == 'A') {
       closeMenu();
     }
-
-    if (e.target.href && e.target.href.includes('#contact')) {
-      e.preventDefault();
-      window.scrollTo(0, document.body.scrollHeight);
-    }
   });
 }
 
