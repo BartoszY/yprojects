@@ -1,0 +1,59 @@
+html {
+  scroll-behavior: smooth;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+html {
+--scrollbarBG: #001C20;
+--thumbBG: #1F574D;
+}
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+html::-webkit-scrollbar-track {
+  background: var(--scrollbarBG);
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 6px;
+  border: 3px solid var(--scrollbarBG);
+}
+
+
+section {
+  background-color: #fff;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+
+.container {
+  width: 100%;
+  max-width: $container-size;
+  padding: 0 20px;
+  margin: auto;
+}
+
+
+
+.pointer {
+  width: 22px;
+  height: 22px;
+  background-color: $color-primary;
+  border: 3px solid transparent;
+
+  pointer-events: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+
+  // transition: .4s border-radius;
+}

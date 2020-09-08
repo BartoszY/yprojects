@@ -1,0 +1,122 @@
+.header {
+  position: absolute;
+  z-index: 50;
+  right: 50px;
+  top: 50px;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  a {
+    transition: .4s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+
+
+.nav {
+  position: fixed;
+  z-index: 4000;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateX(-100%);
+
+  &__menu {
+    list-style: none;
+
+    &__item {
+      margin: 25px 0;
+      font-size: 24px;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 400;
+      transition: .4s;
+
+      // a {
+        &:hover {
+          // transform: scale(.95);
+
+          &::first-letter {
+            color: $color-primary;
+          }
+        }
+      // }
+    }
+  }
+}
+
+
+
+
+.aside {
+  padding: 40px 0;
+  width: 100px;
+  height: 100%;
+  background-color: rgba(229, 229, 229, 0.2);
+  border-right: 1px solid rgba(31, 87, 77, 0.4);
+
+  position: fixed;
+  z-index: 5000;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    margin-top: 60px;
+  }
+}
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  span {
+    margin-bottom: 10px;
+    display: block;
+    width: 36px;
+    height: 1px;
+    background-color: $color-text;
+
+    // TODO Animacja na hover - linie kolorują się na primary ale nie fade tylko elementy after jadą nad tymi, albo są before i aftery i na hover jakby się gonią (Najpierw jedna linia się koloruje potem kolejne z odstępem pomiędzy before i after (kolorami))
+  }
+
+  &__text {
+    color: $color-primary;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.scroll-down {
+  width: 100%;
+  transition: .4s;
+
+  &:hover {
+    transform: translateY(5px);
+  }
+
+  &--up {
+    transform: rotateX(180deg);
+
+    &:hover {
+      transform: rotateX(180deg) translateY(5px);
+    }
+  }
+}

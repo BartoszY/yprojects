@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YProjects</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="prod/css/main.css">
+</head>
+<body>
+  <div class="pointer" data-pointer></div>
+
+  <header class="header">
+    <a href="https://yprojects.pl">yprojects.pl</a>
+  </header>
+
+  <aside class="aside">
+    <button class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+      <div class="burger__text">Menu</div>
+    </button>
+
+    <img src="prod/img/logo-black.svg" alt="Logo YProjects" class="aside__logo">
+
+    <button class="scroll-down" data-scroll-down><img src="prod/img/scroll-down.svg" alt="Scroll down"></button>
+  </aside>
+
+  <nav class="nav">
+    <ul class="nav__menu">
+      <li class="nav__menu__item"><a href="#start">Start</a></li>
+      <li class="nav__menu__item"><a href="#about">About me</a></li>
+      <li class="nav__menu__item"><a href="#portfolio">Portfolio</a></li>
+      <li class="nav__menu__item"><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <section class="hero" id="start">
+      <div class="container">
+        <h1 class="hero__title">
+          <div><span>Let your vision</span></div> <div><span>become a reality</span></div>
+        </h1>
+
+        <h2 class="hero__subtitle"><strong>beautiful</strong> and <strong>practical</strong> ux & good <strong>qualitative</strong> implementations</h2>
+
+        <div class="buttons">
+          <a href="#portfolio" class="button">Portfolio</a>
+          <a href="#contact" class="button button--outline">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="heading">About me</h2>
+
+        <article>
+          <p>My name is Bartosz Nierodzik.<br> I’m a web developer, recently also designer.</p>
+          <p>At the beginning of 2018, I started the adventure as a freelancer. Since then, I have been implementing a lot of interesting projects for agencies and talented designers.<br> I love that feeling when their vision becomes a reality by me.</p>
+          <p><a href="http://cv.yprojects.pl/">You can see my CV <u>here</u></a></p>
+        </article>
+
+        <div class="feature-box"><span>Websites</span><img src="/prod/img/code.svg" alt="Websites"></div>
+        <div class="feature-box"><span>e-commerce</span><img src="/prod/img/edit.svg" alt="e-commerce"></div>
+        <div class="feature-box"><span>ux /ui</span><img src="/prod/img/cart.svg" alt="ux /ui"></div>
+
+        <a href="#portfolio" class="button">Portfolio</a>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <h2 class="heading">P<b>o</b>rtfolio</h2>
+
+        <div class="portfolio-grid">
+          <article>
+            <p>I invite you very much to check my portfolio<br> as a visualization of my experience.</p>
+            <p>Here you can find projects that I have implemented.<br> Some of them are designed by me.</p>
+            <p>Greetings to all the great designers I have worked with.</p>
+            <p class="info">Hover to check the dose of creativity<br> Click on to enjoy.</p>
+          </article>
+
+          <ul class="portfolio-grid__items">
+            <li><a href="https://cseg.pl/" target="_blank" class="portfolio-grid__item">
+              cseg <small>Design & FrontEnd</small>
+            </a></li>
+            <li><a href="http://munission.co/" target="_blank" class="portfolio-grid__item">
+              munission <small>FrontEnd</small>
+            </a></li>
+            <li><a href="https://aiamedycynaestetyczna.pl/" target="_blank" class="portfolio-grid__item">
+              aiamedycynaestetyczna <small>FrontEnd</small>
+            </a></li>
+            <li><a href="https://mokoconcept.pl/" target="_blank" class="portfolio-grid__item">
+              mokoconcept <small>FrontEnd</small>
+            </a></li>
+            <li><a href="https://kopi.com.pl/" target="_blank" class="portfolio-grid__item">
+              kopi <small>FrontEnd</small>
+            </a></li>
+            <li><a href="http://wakacje-rabka.pl/" target="_blank" class="portfolio-grid__item">
+              wakacje-rabka <small>Design & FrontEnd</small>
+            </a></li>
+            <li><a href="https://grazynaanetaochowiak.com/" target="_blank" class="portfolio-grid__item">
+              grazynaanetaochowiak <small>FrontEnd</small>
+            </a></li>
+            <li><a href="https://saintcookie.pl/" target="_blank" class="portfolio-grid__item">
+              saintcookie <small>FrontEnd</small>
+            </a></li>
+            <li><a href="https://pewny-prawnik.pl/" target="_blank" class="portfolio-grid__item">
+              pewny-prawnik <small>FrontEnd</small>
+            </a></li>
+            <li><a href="https://kancelariabialystok.com/" target="_blank" class="portfolio-grid__item">
+              kancelariabialstok <small>Design & FrontEnd</small>
+            </a></li>
+            <li><a href="https://nakosztpowoda.pl/" target="_blank" class="portfolio-grid__item">
+              nakosztpowoda <small>Design & FrontEnd</small>
+            </a></li>
+          </ul>
+        </div>
+
+        <!-- <a href="#contact" class="button button--outline">Contact</a> -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-box__before"></div>
+          <div class="contact-box__after"></div>
+
+          <a href="mailto:bartosz@yprojects.pl">bartosz@yprojects.pl</a>
+          <h3 class="contact-box__title">Contact me</h3>
+          <a href="mailto:bartosz@yprojects.pl">+48 882 004 745</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="copyright">
+      <script>document.write( new Date().getFullYear() )</script> | all rights reserved by <a href="https://yprojects.pl"><strong>yprojects.pl</strong></a>
+    </div>
+  </footer>
+
+  <div class="cookies">
+    <button class="cookies__close">&times;</button>
+
+    <h4 class="cookies__title">Cookie info</h4>
+    <div class="cookies__text">
+      <p>This site uses cookies for analytical purposes only.<br> Continuing is associated with acceptance<br> <a href="https://wszystkoociasteczkach.pl/" target="_blank">More about cookies</a>.</p>
+    </div>
+  </div>
+  
+  <script src="libs/lodash.min.js"></script>
+  <script src="prod/js/main.min.js?v=1.0.0"></script>
+</body>
+</html>

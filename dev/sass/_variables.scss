@@ -1,0 +1,39 @@
+/* Colors */
+$color-primary: #34E9A3;
+$color-secondary: #1F574D;
+$color-text: #001C20;
+
+$font-secondary: 'Montserrat', sans-serif;
+
+$container-size: 1200px;
+
+
+@mixin small() {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin from-small() {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin from-medium() {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin medium(){
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin containerSize() {
+  @media only screen and (max-width: 1480px) {
+    @content;
+  }
+}

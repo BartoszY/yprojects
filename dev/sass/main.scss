@@ -1,0 +1,19 @@
+/* Setup */
+@import 'reset';
+@import 'variables';
+
+@import 'typography';
+
+@import 'global';
+@import "common/header";
+@import "common/footer";
+
+/* Components */
+@import "components/buttons";
+@import "components/cookies";
+
+/* Sections */
+@import "sections/hero";
+@import "sections/about";
+@import "sections/portfolio";
+@import "sections/contact";

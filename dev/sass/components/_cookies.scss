@@ -1,0 +1,60 @@
+.cookies {
+  position: fixed;
+  z-index: 9990;
+  bottom: 35px;
+  right: 25px;
+  padding: 15px 35px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.08);
+
+  transform: translateX(120%);
+  transition: .4s;
+
+  @include medium {
+    margin-left: 10px;
+    right: 10px;
+    bottom: 15px;
+    padding: 15px 20px;
+  }
+
+  &__title {
+    margin: 15px 0;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    font-size: 16px;
+
+    @include medium {
+      font-size: 14px;
+    }
+
+    a {
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    right: 20px;
+    top: 8px;
+
+    border: none;
+    background: none;
+    font-size: 48px;
+    font-weight: 300;
+
+    transition: .4s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

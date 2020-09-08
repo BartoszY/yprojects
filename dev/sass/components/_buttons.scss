@@ -1,0 +1,52 @@
+.button {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  
+  padding: 15px 25px;
+  min-width: 188px;
+  
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: $color-secondary;
+  border: 2px solid $color-secondary;
+
+  // text-edge: cap alphabetic;
+  // leading-trim: both;
+
+  transition: .5s;
+
+  &::before {
+    position: absolute;
+    left: -4px;
+    top: -2px;
+    z-index: -1;
+
+    content: '';
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    background-color: $color-primary;
+
+    transition: .4s;
+    transform-origin: left;
+    transform: scaleX(0.01);
+  }
+
+  &:hover {
+    cursor: none;
+    color: $color-text;
+
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &--outline {
+    background-color: #fff;
+    color: $color-text;
+  }
+}

@@ -1,0 +1,61 @@
+body {
+  font-family: $font-secondary;
+  font-size: 18px;
+  font-weight: 300;
+  color: $color-text;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+a {
+  word-wrap: break-word;
+}
+
+p {
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.heading {
+  font-weight: 900;
+  font-size: 58px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+
+  position: relative;
+  z-index: 50;
+
+  &::before, &::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 9px;
+  }
+
+  &::before {
+    left: -1px;
+    background: $color-primary;
+  }
+
+  &::after {
+    left: 39px;
+    background: $color-secondary;
+  }
+}
+
+
+.info {
+  color: #A1A1A1;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 150%;
+}
