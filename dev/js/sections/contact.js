@@ -6,20 +6,20 @@ const contactAnimations = () => {
 
   gsap.fromTo(
     '.contact-box__before',
-    {x: '290px'},
+    {x: '240px'},
     {x: 0, borderTopWidth: 80, borderRightWidth: 80, scrollTrigger: {
       trigger: '.portfolio',
-      start: "60% top",
+      start: "50% top",
       end: "170% 100%",
       scrub: 1
   }});
 
   gsap.fromTo(
     '.contact-box__after',
-    {x: '-290px'},
+    {x: '-240px'},
     {x: 0, borderBottomWidth: 80, borderLeftWidth: 80, scrollTrigger: {
       trigger: '.portfolio',
-      start: "60% top",
+      start: "50% top",
       end: "170% 100%",
       scrub: 1
   }});

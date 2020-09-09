@@ -1,15 +1,15 @@
 .contact {
   min-height: inherit;
-  padding-bottom: 160px;
+  // padding-bottom: 160px;
 
-  @include small {
-    padding-bottom: 0;
-  }
+  // @include small {
+  //   padding-bottom: 0;
+  // }
 }
 
 .contact-box {
   position: relative;
-  min-height: 500px;
+  height: 500px;
   padding: 25px;
   background-color: $color-secondary;
   color: #ffffff;

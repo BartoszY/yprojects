@@ -5,11 +5,20 @@
   background-position: bottom;
 
   .container {
+    position: relative;
     min-height: 100vh;
     padding-bottom: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include small {
+      padding-top: 80px;
+    }
+
+    @include xsmall {
+      padding-top: 0;
+    }
 
     // TODO Dorobić tutaj na scroll żeby ten tekst szedł bardziej w górę żeby nie był tak sztywno z logo w tej samej pozycji
   }
@@ -23,8 +32,12 @@
     text-transform: uppercase;
 
     @include small {
-      font-size: 26px;
+      font-size: 38px;
       letter-spacing: 1px;
+    }
+
+    @include xsmall {
+      font-size: 26px;
     }
 
     div {
@@ -33,6 +46,10 @@
       height: 70px;
 
       @include small {
+        height: 40px;
+      }
+
+      @include xsmall {
         height: 30px;
       }
     }
@@ -56,9 +73,13 @@
     font-size: 18px;
 
     @include small {
-      font-size: 12px;
+      font-size: 16px;
       line-height: 1.4;
       letter-spacing: 1px;
+    }
+
+    @include xsmall {
+      font-size: 12px;
     }
 
     span {
@@ -92,7 +113,7 @@
   &__logo {
     display: none;
 
-    @include small {
+    @include xsmall {
       display: block;
       position: absolute;
       bottom: 120px;
