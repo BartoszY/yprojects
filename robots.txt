@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /phpmailer/
+Sitemap: https://yprojects.pl/sitemap.xml
