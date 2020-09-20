@@ -3,7 +3,7 @@ import pointer from './components/pointer';
 import cookies from './components/cookies';
 import menuToggle from './components/menu';
 
-import heroAnimations from './sections/hero';
+import { heroAnimations, floatingBox } from './sections/hero';
 import aboutAnimations from './sections/about';
 import portfolioAnimations from './sections/portfolio';
 import contactAnimations from './sections/contact';
@@ -33,6 +33,7 @@ contactLinkSupport();
 heroAnimations();
 
 if (!isMobile()) {
+  floatingBox();
   aboutAnimations();
   portfolioAnimations();
   contactAnimations();

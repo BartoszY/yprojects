@@ -38,7 +38,7 @@ $container-size: 1200px;
 }
 
 @mixin containerSize() {
-  @media only screen and (max-width: 1480px) {
+  @media only screen and (max-width: 1260px) {
     @content;
   }
 }

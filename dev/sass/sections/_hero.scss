@@ -121,3 +121,30 @@
     }
   }
 }
+
+.pattern-box {
+  position: absolute;
+  right: 0;
+  border: 2px solid $color-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 200px;
+
+  opacity: 0;
+
+  @include containerSize {
+    right: 25px;
+    bottom: 100px;
+  }
+
+  @include medium {
+    display: none;
+  }
+
+  &__img {
+    display: block;
+  }
+}

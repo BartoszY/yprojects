@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "../../../gsap-public/src/ScrollTrigger";
+import Sine from "../../../gsap-public/src/EasePack";
 
 const heroAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -25,4 +26,22 @@ const heroAnimations = () => {
   }});
 }
 
-export default heroAnimations;
+const floatingBox = () => {
+  const heroWrapper = document.querySelector('.hero');
+  const patternBox = document.querySelector('.pattern-box');
+  const patternBoxImg = document.querySelector('.pattern-box__img');
+
+  gsap.to(patternBox, .5, {opacity: 1, delay: 3});
+
+  heroWrapper.addEventListener('mousemove', (e) => {
+    var relX = e.pageX - heroWrapper.offsetLeft;
+    var relY = e.pageY - heroWrapper.offsetTop;
+
+    gsap.to(patternBoxImg, 1, {
+      x: (relX - heroWrapper.offsetWidth / 2) / heroWrapper.offsetWidth * -40,
+      y: (relY - heroWrapper.offsetHeight / 2) / heroWrapper.offsetHeight * -40
+    });
+  });
+}
+
+export { heroAnimations, floatingBox };
