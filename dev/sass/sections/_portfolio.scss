@@ -148,7 +148,7 @@
         content: '';
         position: absolute;
         left: -45px;
-        top: 7px;
+        top: calc(50% - 1px);
   
         width: 35px;
         height: 1px;

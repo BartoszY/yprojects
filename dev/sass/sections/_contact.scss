@@ -1,10 +1,5 @@
 .contact {
   min-height: inherit;
-  // padding-bottom: 160px;
-
-  // @include small {
-  //   padding-bottom: 0;
-  // }
 }
 
 .contact-box {
@@ -22,7 +17,7 @@
 
   @include small {
     padding: 60px 0;
-    min-height: inherit;
+    height: inherit;
   }
 
   &__before, &__after {
