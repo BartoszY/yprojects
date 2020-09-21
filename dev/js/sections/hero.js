@@ -6,7 +6,7 @@ const heroAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   const heroElements = document.querySelectorAll(['.hero__title', '.hero__subtitle', '.hero .buttons']);
-  const titles = document.querySelectorAll('.hero__title div span');
+  const titles = document.querySelectorAll('.hero__title__row span');
   const subtitle = document.querySelector('.hero__subtitle');
   const buttons = document.querySelectorAll('.hero .buttons .button');
 

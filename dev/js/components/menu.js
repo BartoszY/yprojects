@@ -10,7 +10,7 @@ const menuToggle = () => {
 
   const asideWrapper = document.querySelector('.aside');
   const burger = document.querySelector('.burger');
-  const burgerSpans = document.querySelectorAll('.burger span');
+  const burgerLines = document.querySelectorAll('.burger__line');
   const burgerText = document.querySelector('.burger__text');
   const logo = document.querySelector('.aside__logo');
   const scrollDown = document.querySelector('.scroll-down');
@@ -30,9 +30,9 @@ const menuToggle = () => {
       .to(asideWrapper, 0.5, {translateX: window.innerWidth - 100, backgroundColor: '#ffffff'})
       .to(navWrapper, 0.5, {translateX: 0}, 'moveWrappers')
       .addLabel('burgerTransformation')
-      .to(burgerSpans[1], 0.4, {opacity: 0})
-      .to(burgerSpans[0], 0.4, {translateY: 12, rotate: 45}, 'burgerTransformation')
-      .to(burgerSpans[2], 0.4, {translateY: -10, rotate: -45}, 'burgerTransformation')
+      .to(burgerLines[1], 0.4, {opacity: 0})
+      .to(burgerLines[0], 0.4, {translateY: 12, rotate: 45}, 'burgerTransformation')
+      .to(burgerLines[2], 0.4, {translateY: -10, rotate: -45}, 'burgerTransformation')
       .to(burgerText, {text: 'Close'}, 'burgerTransformation');
 
       menuActive = true;
@@ -51,9 +51,9 @@ const menuToggle = () => {
     .addLabel('burgerAndOtherTransformations')
     .to(scrollDown, {opacity: 1}, 'burgerAndOtherTransformations')
     .to(logo, {translateY: 0}, 'burgerAndOtherTransformations')
-    .to(burgerSpans[1], {opacity: 1}, 'burgerAndOtherTransformations')
-    .to(burgerSpans[0], {translateY: 0, rotate: 0}, 'burgerAndOtherTransformations')
-    .to(burgerSpans[2], {translateY: 0, rotate: 0}, 'burgerAndOtherTransformations')
+    .to(burgerLines[1], {opacity: 1}, 'burgerAndOtherTransformations')
+    .to(burgerLines[0], {translateY: 0, rotate: 0}, 'burgerAndOtherTransformations')
+    .to(burgerLines[2], {translateY: 0, rotate: 0}, 'burgerAndOtherTransformations')
     .to(burgerText, {text: 'Menu'}, 'burgerAndOtherTransformations');
   }
 

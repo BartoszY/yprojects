@@ -1,7 +1,7 @@
 .portfolio {
   box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.03);
 
-  @include small {
+  @include medium {
     padding: 25px 0;
     margin-bottom: 30px;
   }
@@ -40,13 +40,13 @@
   article {
     text-align: right;
 
-    @include small {
+    @include medium {
       text-align: center;
     }
   }
 
   .info {
-    @include small {
+    @include medium {
       display: none;
     }
   }
@@ -60,27 +60,28 @@
   grid-gap: 100px;
   align-items: center;
 
-  @include small {
+  @include medium {
     margin: 25px 0;
     display: block;
   }
 
-  &::before {
-    content: '';
-    position: absolute;
-    width: 1px;
-    height: 100%;
-    background-color: $color-primary;
-    left: 50%;
-    top: 0;
-
-    @include small {
-      display: none;
-    }
-  }
-  
   &__items {
+    position: relative;
     list-style: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: 100%;
+      background-color: $color-primary;
+      left: -50px;
+      top: 0;
+  
+      @include medium {
+        display: none;
+      }
+    }
 
     li {
       margin: 5px 0;
@@ -98,8 +99,11 @@
 
     transition: .4s color .2s;
 
-    @include small {
+    @include containerSize {
       font-size: 18px;
+    }
+
+    @include medium {
       text-align: center;
       flex-direction: column;
     }
@@ -117,7 +121,7 @@
       transform-origin: left;
       transform: scaleX(0);
 
-      @include small {
+      @include medium {
         position: inherit;
         display: block;
         left: inherit;
@@ -138,7 +142,7 @@
       opacity: 0;
       transition: .4s opacity .4s;
 
-      @include small {
+      @include medium {
         opacity: 1;
         font-size: 10px;
         margin-left: 0;

@@ -40,9 +40,10 @@
       font-size: 26px;
     }
 
-    div {
+    &__row {
       position: relative;
       overflow: hidden;
+      display: block;
       height: 70px;
 
       @include small {
@@ -54,15 +55,13 @@
       }
     }
 
-    span {
+    span:not(.hero__title__row) {
       position: absolute;
       z-index: 200;
 
       opacity: 0;
       transform: translateY(200px);
     }
-
-    // TODO Animacja jakaś wjazdu tekstu np animowanie wskakujące litery
   }
 
   &__subtitle {
