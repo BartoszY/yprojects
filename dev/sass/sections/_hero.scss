@@ -1,8 +1,20 @@
 .hero {
+  position: relative;
   background-color: #fff;
-  background-image: url('/prod/img/forest2.png');
+  background-image: url('/prod/img/bg.jpg');
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: center;
+  background-size: cover;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 139px;
+    background-image: url('/prod/img/forest2.png');
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 
   .container {
     position: relative;
@@ -19,8 +31,6 @@
     @include xsmall {
       padding-top: 0;
     }
-
-    // TODO Dorobić tutaj na scroll żeby ten tekst szedł bardziej w górę żeby nie był tak sztywno z logo w tej samej pozycji
   }
 
   &__title {
@@ -37,7 +47,7 @@
     }
 
     @include xsmall {
-      font-size: 26px;
+      font-size: 24px;
     }
 
     &__row {
