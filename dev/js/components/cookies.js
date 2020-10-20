@@ -6,7 +6,7 @@ const cookies = () => {
   if(!cookiesCookie){
     setTimeout(() => {
       cookiesWrapper.style.transform = 'translateX(0)';
-    }, 3000);
+    }, 3500);
   }
 
   cookiesClose.addEventListener('click', () => {

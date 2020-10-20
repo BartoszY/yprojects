@@ -11,7 +11,7 @@ const pointer = () => {
     */
     gsap.to(pointer, 0.1, {x: e.pageX - 10, y: e.pageY - 10});
 
-    if (e.target.nodeName == 'A' || e.target.nodeName == 'BUTTON' || e.target.parentElement.className == 'burger') {
+    if (e.target.nodeName == 'A' || e.target.nodeName == 'BUTTON' || (e.target.parentElement && e.target.parentElement.className == 'burger')) {
       gsap.to(pointer, 0.4, {
         borderRadius: '15px',
         borderColor: '#ffffff',
