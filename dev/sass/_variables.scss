@@ -2,10 +2,11 @@
 $color-primary: #34E9A3;
 $color-secondary: #1F574D;
 $color-text: #001C20;
+$color-accent: #f2a20e;
 
 $font-secondary: 'Montserrat', sans-serif;
 
-$container-size: 1200px;
+$container-size: 1280px;
 
 @mixin xsmall() {
   @media only screen and (max-width: 480px) {

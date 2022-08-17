@@ -1,172 +1,116 @@
 .portfolio {
-  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.03);
+  margin-top: -600px;
+  text-align: center;
 
-  @include medium {
-    padding: 25px 0;
-    margin-bottom: 30px;
+  p {
+    color: #fff;
+
+    small {
+      opacity: .4;
+    }
   }
 
-  .container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  &__grid {
+    margin: 45px 0;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 25px;
     align-items: center;
-  }
-
-  .heading {
-    b {
-      color: white;
-      font-weight: 900;
-
-      @include small {
-        color: inherit;
-        font-weight: inherit;
-      }
-    }
-  }
-
-  article {
-    text-align: right;
 
     @include medium {
-      text-align: center;
-    }
-  }
-
-  .info {
-    @include medium {
-      display: none;
-    }
-  }
-}
-
-.portfolio-grid {
-  position: relative;
-  margin: 60px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 100px;
-  align-items: center;
-
-  @include medium {
-    margin: 0 0 25px;
-    display: block;
-  }
-
-  &__items {
-    position: relative;
-    list-style: none;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 1px;
-      height: 100%;
-      background-color: $color-primary;
-      left: -50px;
-      top: 0;
-  
-      @include medium {
-        display: none;
-      }
+      grid-gap: 15px;
     }
 
-    li {
-      margin: 5px 0;
+    @include small {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
   &__item {
-    position: relative;
-    padding: 8px 0;
-    display: flex;
-    align-items: center;
+    margin: 25px 0;
+    display: block;
+    border: 3px solid #fff;
+    filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.05));
+    transform-origin: top;
+    overflow: hidden;
 
-    font-weight: 700;
-    font-size: 22px;
-
-    transition: .4s color .2s;
-
-    @include containerSize {
-      font-size: 18px;
-    }
-
-    @include medium {
-      text-align: center;
-      flex-direction: column;
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      opacity: 0;
+      transition: .3s;
     }
 
     &::before {
       content: '';
-      position: absolute;
-      left: -50px;
-
-      width: 35px;
-      height: 1px;
-      background-color: $color-primary;
-      
-      transition: .2s;
-      transform-origin: left;
-      transform: scaleX(0);
-
-      @include medium {
-        position: inherit;
-        display: block;
-        left: inherit;
-        margin-bottom: 15px;
-        transform: scaleX(1);
-      }
+      width: 100%;
+      height: 100%;
+      background: $color-primary;
+      left: 0;
+      top: 0;
     }
 
-    small {
-      position: relative;
-      margin-left: 55px;
-      margin-top: 2px;
-      font-weight: 500;
-      font-size: 12px;
-      text-transform: uppercase;
-      color: $color-secondary;
+    &::after {
+      content: '';
+      width: 40px;
+      height: 40px;
+      background: $color-primary;
+      background-image: url('../img/link.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      left: calc(50% - 20px);
+      top: calc(50% - 20px);
+    }
 
-      opacity: 0;
-      transition: .4s opacity .4s;
-
-      @include medium {
-        opacity: 1;
-        font-size: 10px;
-        margin-left: 0;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        left: -45px;
-        top: calc(50% - 1px);
-  
-        width: 35px;
-        height: 1px;
-        background-color: $color-primary;
-        
-        transition: .2s;
-        transform-origin: left;
-        transform: scaleX(0);
-      }
+    img {
+      display: block;
+      width: 100%;
     }
 
     &:hover {
-      cursor: none;
-      color: $color-primary;
-
       &::before {
-        transform: scaleX(1);
+        opacity: .4;
       }
-
-      small {
+  
+      &::after {
         opacity: 1;
+      }
+    }
+  }
 
-        &::before {
-          transform: scaleX(1);
-        }
+
+  &__more {
+    border: none;
+    padding: 0;
+    text-decoration: underline;
+    color: $color-accent;
+    margin-bottom: 25px;
+  }
+
+  &__list {
+    overflow: hidden;
+    transition: .5s;
+    max-height: 0;
+    opacity: 0;
+    
+    &.active {
+      opacity: 1;
+      max-height: 1000px;
+    }
+
+    &__item {
+      display: block;
+      text-align: center;
+      margin: 25px auto;
+      font-size: 18px;
+      line-height: 1.2;
+      transition: .3s;
+      font-weight: 500;
+
+      &:hover {
+        color: $color-primary;
+        letter-spacing: 2px;
       }
     }
   }

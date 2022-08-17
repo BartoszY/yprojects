@@ -4,21 +4,25 @@ import ScrollTrigger from "../../../gsap-public/src/ScrollTrigger";
 const portfolioAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
 
+  const portfolioItems = document.querySelectorAll('.portfolio__item');
+
   gsap.fromTo(
-    '.portfolio-grid article p', 0.8,
-    {x: '-100px', opacity: 0},
-    {x: 0, opacity: 1, stagger: 0.1, scrollTrigger: {
+    portfolioItems, 0.8,
+    {scaleY: 0, opacity: 0},
+    {scaleY: 1, opacity: 1, stagger: 0.15, scrollTrigger: {
       trigger: '.portfolio',
       start: "-20% top",
   }});
 
-  gsap.fromTo(
-    '.portfolio-grid__item', 0.8,
-    {x: '200px', opacity: 0},
-    {x: 0, opacity: 1, stagger: 0.1, delay: 0.8, scrollTrigger: {
-      trigger: '.portfolio',
-      start: "-20% top",
-  }});
+
+  const moreButton = document.querySelector('.portfolio__more');
+  const moreList = document.querySelector('.portfolio__list');
+
+  if (moreButton && moreList) {
+    moreButton.addEventListener('click', () => {
+      moreList.classList.toggle('active');
+    });
+  }
 }
 
 export default portfolioAnimations;

@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "../../../gsap-public/src/ScrollTrigger";
-import Sine from "../../../gsap-public/src/EasePack";
 
 const heroAnimations = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,32 +15,24 @@ const heroAnimations = () => {
       trigger: '.hero',
       start: "top top",
       end: "160% 100%",
-      scrub: 1
+      scrub: 1,
+  }});
+
+  // bg trees
+  const trees = document.querySelector('.hero__trees-front');
+  gsap.to(
+    trees, 
+    {translateY: 25, scrollTrigger: {
+      trigger: '.hero',
+      start: "top top",
+      end: "160% 100%",
+      scrub: 1,
   }});
 
   const tl = gsap.timeline({delay: 0.5});
-
   tl.to(titles, .8, {opacity: 1, translateY: 0, stagger: 0.1})
     .from(subtitle, .4, {opacity: 0, translateY: '50px'})
     .to(buttons, .3, {opacity: 1, translateY: 0, stagger: 0.1});
 }
 
-const floatingBox = () => {
-  const heroWrapper = document.querySelector('.hero');
-  const patternBox = document.querySelector('.pattern-box');
-  const patternBoxImg = document.querySelector('.pattern-box__img');
-
-  gsap.to(patternBox, .5, {opacity: 1, delay: 3});
-
-  heroWrapper.addEventListener('mousemove', (e) => {
-    var relX = e.pageX - heroWrapper.offsetLeft;
-    var relY = e.pageY - heroWrapper.offsetTop;
-
-    gsap.to(patternBoxImg, 1, {
-      x: (relX - heroWrapper.offsetWidth / 2) / heroWrapper.offsetWidth * -40,
-      y: (relY - heroWrapper.offsetHeight / 2) / heroWrapper.offsetHeight * -40
-    });
-  });
-}
-
-export { heroAnimations, floatingBox };
+export { heroAnimations };

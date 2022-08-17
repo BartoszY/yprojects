@@ -2,61 +2,86 @@
   position: relative;
   z-index: 5;
   display: inline-block;
+  border: none;
   
-  padding: 12px 25px;
+  padding: 12px 25px 11px;
+  padding-right: 45px;
   min-width: 188px;
   
   letter-spacing: 1.5px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
   text-align: center;
   text-transform: uppercase;
-  color: #fff;
-  background-color: $color-secondary;
-  border: 2px solid $color-secondary;
-
-  transition: .5s;
-
-  @include small {
-    padding: 10px 15px;
-    border-width: 1px;
-    font-size: 14px;
-  }
+  color: $color-text;
+  background: $color-primary;
+  transition: .4s;
+  overflow: hidden;
 
   &::before {
+    background: $color-primary;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left: -4px;
-    top: -2px;
+    left: 0;
+    top: 0;
+    content: '';
+    z-index: -2;
+  }
+
+  &::after {
+    position: absolute;
+    right: 20px;
+    top: 20px;
     z-index: -1;
 
     content: '';
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    background-color: $color-primary;
+    width: 10px;
+    height: 10px;
+    background: #fff;
 
-    transition: .4s;
-    transform-origin: left;
-    transform: scaleX(0.01);
-
-    @include small {
-      left: -2px;
-      top: -1px;
-      width: calc(100% + 2px);
-      height: calc(100% + 2px);
-    }
+    transition: .6s;
   }
 
-  &:hover {
-    cursor: none;
-    color: $color-text;
+  span {
+    display: block;
+    pointer-events: none;
+    transition: .4s;
+  }
 
-    &::before {
-      transform: scaleX(1);
+  @include from-small {
+    &:hover {
+      color: #fff;
+  
+      &::after {
+        transform: scale(25) translateX(-2px);
+        background: $color-accent;
+      }
+  
+      span {
+        transform: translateX(10px);
+      }
     }
   }
 
   &--outline {
-    background-color: #fff;
-    color: $color-text;
+    border: 1px solid $color-secondary;
+    background: none;
+    padding-top: 11px;
+    padding-bottom: 10px;
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      background: $color-secondary;
+    }
+
+    @include from-small {
+      &:hover {
+        border-color: $color-accent;
+      }
+    }
   }
 }

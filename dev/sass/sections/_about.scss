@@ -1,115 +1,58 @@
 .about {
-  background-color: $color-text;
-  color: #fff;
+  padding: 300px 0;
+  text-align: center;
 
   @include small {
-    padding-top: 15px;
-    text-align: center;
+    padding: 100px 0;
   }
-  
-  .container {
+
+  &__photo {
     position: relative;
-    min-height: 100vh;
-    padding-bottom: 80px;
+    margin: 100px 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: flex-start;
 
     @include small {
-      padding-bottom: 25px;
+      margin: 45px 0;
+    }
+
+    &__img {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      width: 422px;
+
+      @include small {
+        width: 300px;
+      }
+    }
+
+    &__left, &__right {
+      position: absolute;
+      width: 298px;
+      height: 298px;
+      transform: rotate(45deg);
+
+      @include small {
+        width: 210px;
+        height: 210px;
+      }
+    }
+    
+    &__left {
+      background: $color-text;
+    }
+    &__right {
+      background: $color-primary;
     }
   }
 
-  article {
-    max-width: 600px;
-
-    @include small {
-      margin: 25px auto 0;
-    }
+  &__text {
+    margin: auto;
+    width: 620px;
+    max-width: 100%;
   }
 
   .button {
     margin-top: 45px;
-
-    @include small {
-      display: block;
-      width: 100%;
-    }
-  }
-}
-
-.feature-box {
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  text-align: center;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 200px;
-  height: 200px;
-  border: 2px solid #ffffff;
-
-  position: absolute;
-
-  right: 100px;
-  transition: .4s;
-
-  @include small {
-    position: inherit;
-    right: inherit;
-    margin: auto;
-  }
-
-  &:nth-of-type(1) {
-    margin-top: -420px;
-
-    @include small {
-      margin: 25px auto 15px;
-    }
-  }
-
-  &:nth-of-type(3) {
-    margin-top: 420px;
-
-    @include small {
-      margin-top: 15px;
-    }
-  }
-
-  span {
-    transition: .4s;
-  }
-
-  img {
-    position: absolute;
-    opacity: 0;
-    transition: .4s;
-    
-    transform: translateX(-100%);
-
-    @include small {
-      opacity: .2;
-      transform: translateX(0);
-    }
-  }
-
-  &:hover {
-    border-color: $color-primary;
-    
-    span {
-      opacity: 0;
-      transform: translateX(50px);
-    }
-
-    img {
-      opacity: 1;
-      transition-delay: .1s;
-      transform: translateX(0);
-    }
   }
 }

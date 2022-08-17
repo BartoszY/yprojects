@@ -1,13 +1,9 @@
 body {
   font-family: $font-secondary;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
-  line-height: 1.5;
+  line-height: 1.8;
   color: $color-text;
-
-  @include small {
-    font-size: 16px;
-  }
 }
 
 strong, b {
@@ -20,7 +16,7 @@ a {
 
 p {
   word-wrap: break-word;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 img {
@@ -29,55 +25,18 @@ img {
 }
 
 .heading {
-  font-weight: 900;
-  font-size: 58px;
-  letter-spacing: .5px;
+  margin: 0;
+  font-weight: 300;
+  font-size: 80px;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
-
-  position: relative;
-  z-index: 50;
+  color: transparentize($color: $color-secondary, $amount: .9);
 
   @include small {
-    font-size: 28px;
-    margin: 25px auto 15px;
+    font-size: 48px;
   }
 
-  &::before, &::after {
-    content: '';
-    z-index: -1;
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: 24px;
-
-    @include small {
-      display: none;
-    }
+  &--white {
+    color: transparentize($color: $color-primary, $amount: .75);
   }
-
-  &::before {
-    left: -1px;
-    background: $color-primary;
-
-    @include small {
-      left: 0px;
-    }
-  }
-
-  &::after {
-    left: 39px;
-    background: $color-secondary;
-
-    @include small {
-      left: 20px;
-    }
-  }
-}
-
-
-.info {
-  color: #A1A1A1;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 150%;
 }

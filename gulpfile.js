@@ -1,146 +1,99 @@
-'use strict';
+const { watch, src, dest, series, parallel } = require('gulp');
+const browserSync = require('browser-sync').create();
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const del = require('del');
+const postcss = require('gulp-postcss');
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const browserify = require('gulp-browserify');
+const buffer = require('vinyl-buffer');
 
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    cssmin = require('gulp-cssmin'),
-    uglify = require('gulp-uglify'),
-    cleanCSS = require('gulp-clean-css'),
-    sourcemaps = require('gulp-sourcemaps'),
-    imagemin = require('gulp-imagemin'),
-    fontmin = require('gulp-fontmin'),
-    rename = require('gulp-rename'),
-    concat = require('gulp-concat'),
-    clean = require('gulp-clean'),
-    livereload = require('gulp-livereload'),
-    babel = require('gulp-babel'),
-    browserify = require('browserify'),
-    source = require('vinyl-source-stream'),
-    buffer = require('vinyl-buffer'),
-    connect = require('gulp-connect'),
-    babelify = require('babelify');
-
-//-----------------------------------------------------------------------------------
-// PARAMETERS
-//-----------------------------------------------------------------------------------
-var path = {
-    prod: {
-        url: 'prod',
-        js: 'prod/js/',
-        css: 'prod/css/',
-        img: 'prod/img/',
-        fonts: 'prod/fonts/',
-        maps: '/'
+const config = {
+    static: {
+        html: './*.html',
+        php: './*.php',
     },
-    dev: {
-        js: 'dev/js/',
-        css: 'dev/sass/',
-        img: 'dev/img/',
-        fonts: 'dev/fonts/',
+    app: {
+        js: './dev/js',
+        scss: './dev/sass/**/*.scss',
+        fonts: './dev/fonts/*',
+        images: './dev/img/**',
+        html: './dev/*.html'
     },
-    watch: {
-        js: 'dev/js/',
-        css: 'dev/sass/',
-        img: 'dev/img/',
-        fonts: 'dev/fonts/',
+    dist: {
+        base: './prod/',
+        scss: './prod/css',
+        js: './prod/js',
+        fonts: './prod/fonts',
+        images: './prod/img'
     }
 }
-//-----------------------------------------------------------------------------------
-// PROJECT CLEAN
-//-----------------------------------------------------------------------------------
-gulp.task('clean', function () {
-    return gulp.src(path.prod.url, {read: false})
-        .pipe(clean());
-});
 
-//-----------------------------------------------------------------------------------
-// SASS
-//-----------------------------------------------------------------------------------
-gulp.task('sass', function () {
-    return gulp.src(path.dev.css + '**/*.scss')
-        .pipe(sourcemaps.init({largeFile: true}))
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-            browsers: ['last 10 versions'],
-            cascade: false
-        }))
-        .pipe(cssmin())
-        .pipe(cleanCSS({debug: true}))
-        .pipe(sourcemaps.write(path.prod.maps))
-        .pipe(gulp.dest(path.prod.css))
-        .pipe(livereload());
-});
-
-//-----------------------------------------------------------------------------------
-// JS
-//-----------------------------------------------------------------------------------
-gulp.task('js', function() {
-    return browserify({
-        entries: path.dev.js + 'main.js'
-    })
-    .transform( babelify, {presets: ['@babel/preset-env']} )
-    .bundle()
+function jsTask(done) {
+    src(config.app.js + '/main.js', { read: false })
+    .pipe(browserify({
+        transform: ['babelify'],
+        presets: ['babel-preset-env'],
+    }))
     .on('error', function (err) {
         console.log(err.toString());
-
         this.emit('end');
     })
-    .pipe( source('main.js') )
-    .pipe( rename({ extname: '.min.js' }) )
-    .pipe( buffer() )
-    .pipe( sourcemaps.init({ loadMpas: true }) )
-    .pipe( uglify() )
-    .pipe( sourcemaps.write('./') )
-    .pipe( gulp.dest(path.prod.js) )
-});
+    .pipe(rename('main.min.js'))
+    .pipe(buffer())
+    .pipe(uglify())
+    .pipe(dest(config.dist.js))
+    done();
+}
 
-//-----------------------------------------------------------------------------------
-// IMAGES
-//-----------------------------------------------------------------------------------
-gulp.task('images', function() {
-    return gulp.src(path.dev.img + '**/*.*')
-        .pipe(imagemin([
-            imagemin.gifsicle({interlaced: true}),
-            imagemin.jpegtran({progressive: true}),
-            imagemin.optipng(),
-            imagemin.svgo([{removeViewBox: false}, {minifyStyles: false}])
-        ], {verbose: true}))
-        .pipe(gulp.dest(path.prod.img));
-});
+function cssTask(done) {
+    src(config.app.scss)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(dest(config.dist.scss))
+    done();
+}
 
-//-----------------------------------------------------------------------------------
-// FONTS
-//-----------------------------------------------------------------------------------
-gulp.task('fonts', function () {
-    return gulp.src(path.dev.fonts + '**/*.*')
-        .pipe(fontmin())
-        .pipe(gulp.dest(path.prod.fonts));
-});
+function fontTask(done) {
+    src(config.app.fonts)
+        .pipe(dest(config.dist.fonts))
+    done();
+}
 
-//-----------------------------------------------------------------------------------
-// BUILD
-//-----------------------------------------------------------------------------------
-gulp.task('build', ['sass', 'js', 'images', 'fonts']);
+function imagesTask(done) {
+    src(config.app.images)
+        .pipe(dest(config.dist.images))
+    done();
+}
 
-//-----------------------------------------------------------------------------------
-// WATCH
-//-----------------------------------------------------------------------------------
-gulp.task('watch', function () {
-    livereload.listen();
+function watchFiles() {
+    watch(config.app.js, series(jsTask, reload));
+    watch(config.app.scss, series(cssTask, reload));
+    watch(config.app.fonts, series(fontTask, reload));
+    watch(config.app.images, series(imagesTask, reload));
+    watch(config.static.html, reload);
+    watch(config.static.php, reload);
+}
 
-    gulp.watch(path.watch.css + '**/*.scss', ['sass']);
-    gulp.watch(path.watch.js + '**/*.js', ['js']);
-    gulp.watch(path.watch.img + '**/*.*', ['images']);
-    gulp.watch(path.watch.img + '**/*.*', ['fonts']);
-});
+function liveReload(done) {
+    browserSync.init({
+        open: 'external',
+        host: 'yprojects.local',
+        proxy: 'yprojects.local'
+    });
+    done();
+}
 
-var connect = require('gulp-connect');
+function reload (done) {
+    browserSync.reload();
+    done();
+}
 
-gulp.task('connect', function() {
-  connect.server({
-    root: '.',
-    livereload: true
-  })
-});
+function cleanUp() {
+    return del([config.dist.base]);
+}
 
-gulp.task('default', ['build', 'watch']);
+exports.default = parallel(jsTask, cssTask, fontTask, imagesTask, watchFiles, liveReload);
+exports.build = series(cleanUp, parallel(jsTask, cssTask, fontTask, imagesTask));
