@@ -1,9 +1,9 @@
 .about {
-  padding: 300px 0;
+  margin: 250px 0;
   text-align: center;
 
   @include small {
-    padding: 100px 0;
+    margin: 100px 0;
   }
 
   &__photo {
