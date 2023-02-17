@@ -39,8 +39,8 @@
 
   &__title {
     margin: 0;
-    font-weight: 200;
-    font-size: 70px;
+    font-weight: 300;
+    font-size: 60px;
     line-height: 1;
     text-transform: uppercase;
 
@@ -49,21 +49,21 @@
     }
 
     @include xsmall {
-      font-size: 31px;
+      font-size: 28px;
     }
 
     &__row {
       position: relative;
       overflow: hidden;
       display: block;
-      height: 80px;
+      height: 70px;
 
       @include small {
         height: 50px;
       }
   
       @include xsmall {
-        height: 40px;
+        height: 34px;
       }
     }
 

@@ -18,11 +18,13 @@
   <meta property="og:site_name"          content="Y-Projects" />
   <meta property="og:app_id"             content="459798705007479" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;700&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" media="print" onload="this.onload=null;this.removeAttribute('media');" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap">
+	<noscript>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap">
+	</noscript>
   
-  <link rel="stylesheet" href="/prod/css/main.css?v=5.1.1">
+  <link rel="stylesheet" href="/prod/css/main.css?v=5.1.2">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90371282-1"></script>
@@ -152,7 +154,7 @@
             <div class="project-box__image">
               <img class="project-box__img" src="/prod/img//portfolio/anna-big.webp" alt="Strona internetowa ślubna">
             </div>
-            <a href="https://yprojects.pl/projects/annaipiotr/index.php/" target="_blank" class="project-box__link">Anna & Piotr</a>
+            <a href="https://yprojects.pl/projects/annaipiotr/" target="_blank" class="project-box__link">Anna & Piotr</a>
           </div>
 
           <div class="project-box">
@@ -314,31 +316,33 @@
     </div>
   </div>
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-  <script>
-    if (window.VANTA) window.VANTA.BIRDS({
-      el: ".hero",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      backgroundColor: 0xffffff,
-      color1: 0xf2a20e,
-      color2: 0x34E9A3,
-      colorMode: "lerp",
-      birdSize: 1.20,
-      wingSpan: 25.00,
-      speedLimit: 2.00,
-      backgroundAlpha: 0.00,
-      quantity: 3.00,
-    });
-  </script>
-
   <script src="/libs/lodash.min.js"></script>
   <script src="/prod/js/main.min.js?v=5.1.0"></script>
+
+  <script id="threejs" defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script id="vantajs" defer src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.VANTA) window.VANTA.BIRDS({
+        el: ".hero",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        backgroundColor: 0xffffff,
+        color1: 0xf2a20e,
+        color2: 0x34E9A3,
+        colorMode: "lerp",
+        birdSize: 1.20,
+        wingSpan: 25.00,
+        speedLimit: 2.00,
+        backgroundAlpha: 0.00,
+        quantity: 3.00,
+      });
+    });
+  </script>
 </body>
 </html>
