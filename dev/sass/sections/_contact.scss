@@ -2,7 +2,8 @@
   text-align: center;
 
   .heading {
-    color: transparentize($color: #fff, $amount: .75);
+    color: #fff;
+    opacity: .9;
   }
 
   &__grid {
@@ -46,6 +47,10 @@
     background: linear-gradient(45deg, $color-text, $color-secondary);
   }
 
+  & > img {
+    transition: .3s;
+  }
+
   &__title {
     margin: 45px 0 5px;
     text-transform: uppercase;
@@ -60,6 +65,13 @@
 
     @include medium {
       font-size: 24px;
+    }
+  }
+
+  &:hover {
+    & > img {
+      filter: brightness(0) invert(1);
+      opacity: .9;
     }
   }
 }

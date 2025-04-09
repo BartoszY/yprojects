@@ -37,13 +37,12 @@
     }
 
     img {
-      opacity: .5;
+      opacity: .8;
     }
 
     &__title {
       margin: 30px 0;
       position: relative;
-      text-transform: lowercase;
       font-weight: 300;
       font-size: 30px;
       line-height: 1.2;
@@ -67,7 +66,7 @@
     }
 
     p {
-      color: transparentize($color: #fff, $amount: .2);
+      color: transparentize($color: #fff, $amount: .15);
     }
   }
 }
